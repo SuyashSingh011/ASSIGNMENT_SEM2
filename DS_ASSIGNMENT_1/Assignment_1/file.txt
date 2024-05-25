@@ -1,0 +1,36 @@
+Time Complexity:
+
+Inserting/Deleting at the beginning of a linked list is very fast, just O(1) time.
+Inserting/Deleting at a specific index in a linked list takes O(n) time, as you need to traverse to that index.
+Inserting/Deleting in a dynamic array at the end is very fast, O(1) on average.
+But inserting/deleting at a specific index in a dynamic array is O(n) time, as all elements after that index need to be shifted.
+
+Space Complexity:
+
+Linked lists use a bit more space than arrays, as each node needs to store both the data and a pointer to the next node.
+Dynamic arrays may need to periodically allocate new, larger chunks of memory as they grow, potentially wasting some space.
+
+Advantages of Linked Lists:
+
+Inserting or removing elements at the beginning is really fast.
+Memory is allocated as needed, so you don't need to pre-allocate a large chunk of memory upfront.
+
+Disadvantages of Linked Lists:
+
+Accessing an element by index is slow, as you need to traverse from the beginning.
+Extra memory is needed for the pointer fields in each node.
+Dynamic memory allocation and deallocation can lead to fragmentation.
+
+Advantages of Dynamic Arrays:
+
+Fast access to elements by index.
+Memory is allocated in contiguous blocks, so it's cache-friendly.
+Simple implementation.
+
+Disadvantages of Dynamic Arrays:
+
+Inserting or deleting at specific indices can be slow due to shifting of elements.
+Need to periodically allocate new, larger chunks of memory as the array grows.
+If you don't know the maximum size upfront, you may need to over-allocate memory.
+
+In summary, linked lists are better if you need to insert/remove at the beginning often, while dynamic arrays are better if you need fast access by index. Dynamic arrays generally have a simpler implementation, but linked lists can be more memory-efficient in some cases.
