@@ -1,0 +1,105 @@
+class Node:
+    def __init__(self, data=0, prev=None, next=None):
+        self.data = data
+        self.prev = prev
+        self.next = next
+
+class MyLinkedList:
+
+    def __init__(self):
+        self.__head = None
+        self.__tail = None
+        self.__size = 0
+
+    def size(self):
+        return self.__size    
+
+    def isempty(self):
+        return self.size() == 0    
+       
+    def get(self, index: int) -> int:
+        if index < 0 or index >= self.__size:
+            return -1
+        
+        curr = self.__head
+        for i in range(index):
+            curr = curr.next
+        return curr.data
+
+        
+
+    def addAtHead(self, data: int) -> None:
+        newnode = Node(data)
+        if self.isempty():
+            self.__head = newnode
+            self.__tail = newnode
+        else:
+            newnode.next = self.__head
+            self.__head.prev = newnode
+            self.__head = newnode
+        self.__size += 1
+        
+
+    def addAtTail(self, val: int) -> None:
+        newnode = Node(val)
+        if not self.__tail:
+            self.__head = self.__tail = newnode
+        else:
+            newnode.prev = self.__tail
+            self.__tail.next = newnode
+            self.__tail = newnode
+        self.__size += 1
+
+        
+
+    def addAtIndex(self, index: int, data: int) -> None:
+        if index < 0 or index > self.__size:
+            return
+
+        if index == 0:
+            self.addAtHead(data)
+        elif index == self.__size:
+            newnode = Node(data)
+            self.__tail.next = newnode
+            newnode.prev = self.__tail
+            self.__tail = newnode
+            self.__size += 1
+        else:
+            trav = self.__head
+            for _ in range(index - 1):
+                trav = trav.next
+            newnode = Node(data, trav, trav.next)
+            trav.next.prev = newnode
+            trav.next = newnode
+            self.__size += 1
+        
+
+    def deleteAtIndex(self, index: int) -> None:
+        if index < 0 or index >= self.__size:
+            return
+        
+        curr = self.__head
+        for _ in range(index):
+            curr = curr.next
+        
+        if curr.prev:
+            curr.prev.next = curr.next
+        else:
+            self.__head = curr.next
+        
+        if curr.next:
+            curr.next.prev = curr.prev
+        else:
+            self.__tail = curr.prev
+        
+        self.__size -= 1
+        
+
+
+# Your MyLinkedList object will be instantiated and called as such:
+# obj = MyLinkedList()
+# param_1 = obj.get(index)
+# obj.addAtHead(val)
+# obj.addAtTail(val)
+# obj.addAtIndex(index,val)
+# obj.deleteAtIndex(index)

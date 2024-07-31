@@ -126,7 +126,7 @@ class LinkedList:
     # Interleave two linked lists into a single linked list   
     '''
     Interleaving two linked lists means creating a new linked list by alternately taking nodes from each of the two original linked lists.
-For example, let's say we have two linked lists:
+example,we have two linked lists:
 List 1: 1 -> 3 -> 5
 List 2: 2 -> 4 -> 6
 If we interleave these two lists, the resulting new linked list would be:
@@ -204,31 +204,30 @@ Interleaved List: 1 -> 2 -> 3 -> 4 -> 5 -> 6
             curr = curr.next
         print()
 
-# Example usage
 linked_list = LinkedList()
 linked_list.append(1)
 linked_list.append(2)
 linked_list.append(3)
 linked_list.append(4)
-linked_list.print_list()  # Output: 1 2 3 4
+linked_list.print_list()  # 1 2 3 4
 
 linked_list.insert(2, 5)
-linked_list.print_list()  # Output: 1 2 5 3 4
+linked_list.print_list()  #  1 2 5 3 4
 
 linked_list.delete_at_index(2)
-linked_list.print_list()  # Output: 1 2 3 4
+linked_list.print_list()  # 1 2 3 4
 
-print("Size:", linked_list.get_size())  # Output: Size: 4
-print("Is empty?", linked_list.is_empty())  # Output: Is empty? False
+print("Size:", linked_list.get_size())  # Size: 4
+print("Is empty?", linked_list.is_empty())  # Is empty? False
 
 linked_list.rotate_right(2)
-linked_list.print_list()  # Output: 3 4 1 2
+linked_list.print_list()  # 3 4 1 2
 
 linked_list.reverse()
-linked_list.print_list()  # Output: 2 1 4 3
+linked_list.print_list()  #  2 1 4 3
 
 linked_list.prepend(0)
-linked_list.print_list()  # Output: 0 2 1 4 3
+linked_list.print_list()  # 0 2 1 4 3
 
 list1 = LinkedList()
 list1.append(1)
@@ -241,15 +240,15 @@ list2.append(4)
 list2.append(6)
 
 merged_list = linked_list.merge(list1, list2)
-merged_list.print_list()  # Output: 1 2 3 4 5 6
+merged_list.print_list()  #1 2 3 4 5 6
 
 interleaved_list = linked_list.interleave(list1, list2)
-interleaved_list.print_list()  # Output: 1 2 3 4 5 6
+interleaved_list.print_list()  # 1 2 3 4 5 6
 
-print("Middle element:", linked_list.get_middle_element())  # Output: Middle element: 2
+print("Middle element:", linked_list.get_middle_element())  # Middle element: 2
 
-print("Index of 3:", linked_list.index_of(3))  # Output: Index of 3: 3
+print("Index of 3:", linked_list.index_of(3))  # Index of 3: 3
 
 second_list = linked_list.split_at_index(2)
-linked_list.print_list()  # Output: 0 2
-second_list.print_list()  # Output: 1 4 3
+linked_list.print_list()  # 0 2
+second_list.print_list()  # 1 4 3
